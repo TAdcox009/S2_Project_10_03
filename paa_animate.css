@@ -1,0 +1,56 @@
+/*
+   New Perspectives on HTML and CSS, 7th Edition
+   Tutorial 8
+   Case Problem 3
+
+   Pixal Arts and Entertainment Animation Styles
+   Author: Todd Adcox Jr
+    Date:   1-30-19   
+
+   Filename: 
+   
+   Sprite animation is created using the paa_bat.png, 
+   paa_bfly.png, and paa_fox.png image files.
+   
+   paa_bat.png has 40 frames
+   paa_bfly.png has 34 frames
+   paa_fox.png has 28 frames
+
+*/
+
+/* 
+7.	Heather wants a transition effect applied to the links in the gameLinks list in which a gradient-colored bar gradually expands under each link during the hover event. To create this effect, you will use the after pseudo-element and the content property to insert the bar. Create a style rule for the nav#gameLinks a::after selector that: 
+a) places an empty text string as the value of the content property, 
+b) places the content with absolute positioning with a top value of 100% and a left value of 0 pixels, 
+c) sets the width to 0% and the height to 8 pixels, 
+d) changes the background to a linear gradient that moves to right from the color value rgb(237, 243, 71) to rgb(188, 74,0), e) sets the border radius to 4 pixels, and f) hides the bar by setting the opacity to 0. */
+
+/* Transition Effects */
+
+/* The following is going to affect the nav a selector with the id of gameLinks, its going to place the links using relative positioning, setting the font color to white, and has a transition with the font color over a 0.5-second interval. */
+nav#gameLinks a {
+    position: relative;
+    color: white;
+    transition: color 0.5s
+}
+
+/* For the nav a selector with the id of gameLinks and pseudo class of hover it is going to set the font color to rgb(255, 194, 99). */
+nav#gameLinks a:hover {
+    color: rgb(255, 194, 99);
+}
+
+nav#gameLinks a::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 0%;
+    height: 8px;
+}
+
+/* Sprite Styles */
+
+
+
+
+/* Animation Styles */
