@@ -18,13 +18,6 @@
 
 */
 
-/* 
-7.	Heather wants a transition effect applied to the links in the gameLinks list in which a gradient-colored bar gradually expands under each link during the hover event. To create this effect, you will use the after pseudo-element and the content property to insert the bar. Create a style rule for the nav#gameLinks a::after selector that: 
-a) places an empty text string as the value of the content property, 
-b) places the content with absolute positioning with a top value of 100% and a left value of 0 pixels, 
-c) sets the width to 0% and the height to 8 pixels, 
-d) changes the background to a linear gradient that moves to right from the color value rgb(237, 243, 71) to rgb(188, 74,0), e) sets the border radius to 4 pixels, and f) hides the bar by setting the opacity to 0. */
-
 /* Transition Effects */
 
 /* The following is going to affect the nav a selector with the id of gameLinks, its going to place the links using relative positioning, setting the font color to white, and has a transition with the font color over a 0.5-second interval. */
@@ -34,11 +27,13 @@ nav#gameLinks a {
     transition: color 0.5s
 }
 
-/* For the nav a selector with the id of gameLinks and pseudo class of hover it is going to set the font color to rgb(255, 194, 99). */
+/* For the nav a selector with the id of gameLinks and the pseudo class of hover it is going to set the background color to rgb(255, 194, 99).*/
 nav#gameLinks a:hover {
     color: rgb(255, 194, 99);
 }
 
+/* 
+The nav a selector with the id of gameLinks with the pseudo class of after, places an empty text string as the value of the content property, poitions the content with absolute positioning with a top value of 100% and a left value of 0 pixels, sets the width to 0%, height to 8 pixels, changes the background to a linear gradient that moves to right one color value to another, sets the border radius to 4 pixels, and hides the bar because the opacity is set to 0, Adds a transition style that applies the opacity and width changes over a half of a second. */
 nav#gameLinks a::after {
     content: "";
     position: absolute;
@@ -46,11 +41,58 @@ nav#gameLinks a::after {
     left: 0px;
     width: 0%;
     height: 8px;
+    background: linear-gradient(to right, rgb(237, 243, 71), rgb(188, 74, 0));
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 1 0.5s, width 100% 0.5s;
+}
+
+/* When the nav a selector with the id of gameLinks with the pseudo class of after a:hover::after is being hovered over the opacity is going to change to 1 and the width will be 100%.
+ */
+nav#gameLinks a:hover::after {
+    opacity: 1;
+    width: 100%;
 }
 
 /* Sprite Styles */
 
+/* The div elements with the class of sprite or going to have absolute positioning.*/
+div.sprite {
+    position: absolute;
+}
 
+/*For the div element with the ID bat, it is setting the width and height to 40 pixels by 50 pixels, sets the top and left coordinates to 100 pixels and –50 pixels, and displays the background image, placed in the left center of the background with no tiling and is set to cover the background. */
+div#bat {
+    width: 40px 50px;
+    height: 40px 50px;
+    top: 100px;
+    left: -50px;
+    background: url(paa_bat.png) left center/ cover no-repeat;
+}
 
+/* 13. Create a similar style rule for the div element with the ID butterfly, setting the width and height at 35 pixels, the top-left coordinates at 60 pixels and –50 pixels, and using the paa_bfly.png as the background image. Create another 
+ */
+
+div#butterfly {
+    width: 35px;
+    height: 35px;
+    top: 60px;
+    left: -50px;
+    background: url(paa_bfly.png) left center/ cover no-repeat;
+}
+
+/* 13. style rule for the div element with the ID fox, setting the width and height at 280 and 260 pixels, the bottom and right coordinates at 10 pixels, and the paa_fox.png file as the background image. (Note: The background image in all aminations should place the image at the left center with no tiling and sized to cover the background.)
+ */
+
+div#fox {
+    width: 280px;
+    height: 260px;
+    bottom: 10px;
+    right: 10px;
+    background: url(paa_fox.png) left center/ cover no-repeat;
+}
 
 /* Animation Styles */
+
+/* 14. Sprites are animated by moving the background image file across the background of the object. Go to the Animation Styles section and create an animation named playsprite that sets the background image position to right center at 100% time.
+15. Heather wants the bat and butterfly to flutter as they move across the animation box. Create an animation named flyRight with the following key frames: a) at 25% time, set the top coordinate to 150 pixels, b) at 50% time, set the top coordinate to 55 pixels, c) at 65% time, set the top coordinate to 120 pixels, d) at 90% time, set the top coordinate to 50 pixels, and e) at 100% time, set the top and left coordinates to 80 pixels and 100%. */
