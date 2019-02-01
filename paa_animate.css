@@ -61,16 +61,22 @@ div.sprite {
     position: absolute;
 }
 
-/*For the div element with the ID bat, it is setting the width and height to 40 pixels by 50 pixels, sets the top and left coordinates to 100 pixels and –50 pixels, and displays the background image, placed in the left center of the background with no tiling and is set to cover the background. */
+/*For the div element with the ID bat, it is setting the width and height to 40 pixels by 50 pixels, sets the top and left coordinates to 100 pixels and –50 pixels, and displays the background image, placed in the left center of the background with no tiling and is set to cover the background an animation is set to the bat div element over a 2-second interval with 39 steps the flyRight animation over an 8-second interval with linear timing both animations to loop infinitely. */
 div#bat {
-    width: 40px 50px;
-    height: 40px 50px;
+    width: 40px;
+    height: 50px;
     top: 100px;
     left: -50px;
     background: url(paa_bat.png) left center/ cover no-repeat;
+    animation: playSprite 2s steps(39) infinite;
+    animation:  flyRight 8s infinite;
+    animation-timing-function: linear;
 }
 
-/* 13. Create a similar style rule for the div element with the ID butterfly, setting the width and height at 35 pixels, the top-left coordinates at 60 pixels and –50 pixels, and using the paa_bfly.png as the background image. Create another 
+
+
+
+/*For the div element with the ID butterfly, it is setting the width and height to 35 pixels, the top and left coordinates at 60 pixels and –50 pixels, and setting a background image. the has a 3-second delay, with a playing time of 1 second spaced out in 33 steps,the flyRight animation plays over a 6-second interval. Make the butterfly appear to hover by applying a Cubic Bézier curve to the flyRight timing with the function cubic-bezier(0,1,0.73,0). Set both animations to loop infinitely.
  */
 
 div#butterfly {
@@ -79,9 +85,11 @@ div#butterfly {
     top: 60px;
     left: -50px;
     background: url(paa_bfly.png) left center/ cover no-repeat;
+    animation: playSprite 1s steps(33), flyRight 6s infinite;
+    animation-timing-function: cubic-bezier(0,1,0.73,0) infinite;
 }
 
-/* 13. style rule for the div element with the ID fox, setting the width and height at 280 and 260 pixels, the bottom and right coordinates at 10 pixels, and the paa_fox.png file as the background image. (Note: The background image in all aminations should place the image at the left center with no tiling and sized to cover the background.)
+/*For the div element with the ID fox, it is setting the width and height at 280 and 260 pixels, the bottom and right coordinates to 10 pixels, and setting a background image in the left center, covering the background and not being tiled, after a 4-second delay over a time interval of 3.5 seconds and a steps value of 27 the animation will loop infinitely.
  */
 
 div#fox {
@@ -90,9 +98,40 @@ div#fox {
     bottom: 10px;
     right: 10px;
     background: url(paa_fox.png) left center/ cover no-repeat;
+    animation: playSprite 3.5s steps(27) 4s infinite;
 }
 
 /* Animation Styles */
 
-/* 14. Sprites are animated by moving the background image file across the background of the object. Go to the Animation Styles section and create an animation named playsprite that sets the background image position to right center at 100% time.
-15. Heather wants the bat and butterfly to flutter as they move across the animation box. Create an animation named flyRight with the following key frames: a) at 25% time, set the top coordinate to 150 pixels, b) at 50% time, set the top coordinate to 55 pixels, c) at 65% time, set the top coordinate to 120 pixels, d) at 90% time, set the top coordinate to 50 pixels, and e) at 100% time, set the top and left coordinates to 80 pixels and 100%. */
+
+
+/* this is going to make the fox stay in the same position 100% of the time */
+@keyframes playSprite {
+    100% {
+        background-position: right center;
+    }
+}
+
+/* at different time periods the butterfly and bat are going to move to the specified cordinate. */
+@keyframes flyRight {
+    25% {
+        top: 150px;
+    }
+
+    50% {
+        top: 55px;
+    }
+
+    65% {
+        top: 120px;
+    }
+
+    90% {
+        top: 50px;
+    }
+
+    100% {
+        top: 80px;
+        left: 100%;
+    }
+}
